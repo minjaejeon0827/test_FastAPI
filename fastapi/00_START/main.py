@@ -1,3 +1,38 @@
+# fastapi 코드잇 최종 프로젝트 소스코드(2026.04.16 minjae)
+# 참고: https://github.com/gyurili/2025-GEO-Project.git
+
+# pymysql - Pymysql을 사용하여 Python과 SQL 연동하기
+# 참고: https://youtu.be/XVJ4yRaqb-w?si=dDfXm3AdLuBq1wU4
+
+# pymysql - DB 프로그래밍1 - 파이썬 세팅 및 주소록 프로그램 제작
+# 참고: https://youtu.be/MLNFyBAHvq0?si=xd8rOxg2sfVhtKtn
+
+# pymysql - DB 프로그래밍2 - pymysql로 db연동
+# 참고: https://youtu.be/R3SSNTE2CQE?si=9jLbmFRQ9XEo6PBZ
+
+# pymysql - [SQL 기초 강의] 22강. 파이썬과 MySQL 연동하기
+# 참고: https://youtu.be/Se1ImwcqmlA?si=_F5ItimSCr51Nvbb
+
+# pymysql - Python: MySQL과 파이썬 연동하기 (pymysql)
+# 참고: https://youtu.be/B956r7XzJIA?si=kKRhZ3-w2ykHhUuB
+
+
+# fastapi MySQL CRUD 연동 유튜브 동영상
+# 참고: https://youtu.be/7frN5JPMsQU?si=8EXm2RaSLKuer5p1
+# 참고 2: https://youtu.be/ooHWO2gP7Qo?si=5dZA7BMKllqe70mT
+# 참고 3: https://youtu.be/S-XvcwNcYp4?si=RDt4yrshUq5JlQjE
+# 참고 4: https://youtu.be/N8i4GcRRkV8?si=x8ySwLj2MDFmdyu6
+# 참고 5: https://youtu.be/5dqKuNhkkjA?si=WPapYU-t44maMX65
+# 참고 6: https://youtu.be/4KljjdbcWJ0?si=BLkcYfPv9SQpswuX
+# 참고 7: https://youtu.be/aoPGAoPjF3I?si=eaSZZUNaX_7Hs8Gi
+
+# Ubuntu 리눅스 사용 방법
+# Visual Studio Code를 윈도우 WSL환경과 함께 이용해보자.
+# 참고: https://www.youtube.com/live/s_Tt_C_X0ZI?si=rzpnpWUvRKJ_Ci9X
+
+# GIT 커밋 메시지 작성 방법
+# 참고: https://wikidocs.net/332862
+
 # fastapi 터미널 설치 명령어(Python 3.6 이상 필요.)
 # pip install fastapi
 # pip install fastapi==0.104.1(파이썬 동영상 강의 실습 환경)
