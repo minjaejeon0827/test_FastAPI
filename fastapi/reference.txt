@@ -15,7 +15,7 @@
 참고: https://youtu.be/Se1ImwcqmlA?si=_F5ItimSCr51Nvbb
 
 * pymysql - Python: MySQL과 파이썬 연동하기 (pymysql)
-# 참고: https://youtu.be/B956r7XzJIA?si=kKRhZ3-w2ykHhUuB
+참고: https://youtu.be/B956r7XzJIA?si=kKRhZ3-w2ykHhUuB
 
 * fastapi MySQL CRUD 연동 유튜브 동영상
 참고: https://youtu.be/7frN5JPMsQU?si=8EXm2RaSLKuer5p1
