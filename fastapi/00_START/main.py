@@ -44,6 +44,9 @@
 # fastapi 웹서버 터미널 실행 명령어
 # 실습: uvicorn 00_START.main:app --reload
 # 기본: uvicorn main:app --reload
+# main: FastAPI 애플리케이션 코드가 있는 Python 파일명 (main.py)
+# app: FastAPI 인스턴스 객체명(app = FastAPI())
+# --reload: 개발 중 코드 변경 시 자동으로 서버 재시작
 # uvicorn main: - main.py 소스파일
 # app: FastAPI 인스턴스 app 실행
 # --reload: FastAPI 인스턴스 app 실행한 후에 
@@ -61,9 +64,16 @@ from fastapi import FastAPI  # FastAPI 클래스 가져옴.
 
 app = FastAPI()  # FastAPI 인스턴스 생성
 
+# URL 주소 1 - http://127.0.0.1:8000/ 
+# URL 주소 2 - http://127.0.0.1:8000 둘 다 동일.
 @app.get("/")  # HTTP GET 요청 경로 지정
 def read_root():  # GET 요청 처리 함수
     return {"message": "Hello, World!"}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환
+
+# URL 주소 - http://127.0.0.1:8000/hello
+@app.get("/hello")  # HTTP GET 요청 경로 지정
+def read_hi():  # GET 요청 처리 함수
+    return {"message": "Hi, World!"}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환
 
 # FastAPI 웹서버 실행하여 아래 오류 메시지 출력시 해결 방법
 # 방법 1. 실습: uvicorn 00_START.main:app --reload 명령어 실행
