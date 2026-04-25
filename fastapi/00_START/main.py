@@ -1,3 +1,6 @@
+# AI 도구 fastapi 관련 질문
+# 참고: https://gemini.google.com/app/8b1fe07309a58049?hl=ko
+
 # fastapi 코드잇 최종 프로젝트 소스코드(2026.04.16 minjae)
 # 참고: https://github.com/gyurili/2025-GEO-Project.git
 
@@ -15,7 +18,6 @@
 
 # pymysql - Python: MySQL과 파이썬 연동하기 (pymysql)
 # 참고: https://youtu.be/B956r7XzJIA?si=kKRhZ3-w2ykHhUuB
-
 
 # fastapi MySQL CRUD 연동 유튜브 동영상
 # 참고: https://youtu.be/7frN5JPMsQU?si=8EXm2RaSLKuer5p1
@@ -131,3 +133,165 @@ def read_items(skip = 0, limit = 10):  # GET 요청 처리 함수
 # WARNING:  StatReload detected changes in '00_START\main.py'. Reloading...
 # ERROR:    Error loading ASGI app. Could not import module "main".
 
+# Windows PowerShell 명령어
+# 주의사항
+# "curl --version" Windows PowerShell 명령어 실행시 오류는 발생하지만
+# curl https://www.naver.com curl 명령어는 정상적으로 실행된다.        
+# Windows PowerShell
+# Copyright (C) Microsoft Corporation. All rights reserved.
+
+# 새로운 기능 및 개선 사항에 대 한 최신 PowerShell을 설치 하세요! https://aka.ms/PSWindows
+
+# PS C:\Users\NT371B5A> curl
+
+# cmdlet Invoke-WebRequest(명령 파이프라인 위치 1)
+# 다음 매개 변수에 대한 값을 제공하십시오.
+# Uri: exit
+# curl : 원격 이름을 확인할 수 없습니다.: 'exit'
+# 위치 줄:1 문자:1
+# + curl
+# + ~~~~
+#     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-
+#    WebRequest], WebException
+#     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWeb
+#    RequestCommand
+
+# PS C:\Users\NT371B5A> curl --version
+# curl : 원격 이름을 확인할 수 없습니다.: '--version'
+# 위치 줄:1 문자:1
+# + curl --version
+# + ~~~~~~~~~~~~~~
+#     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-
+#    WebRequest], WebException
+#     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWeb
+#    RequestCommand
+
+# PS C:\Users\NT371B5A> curl https://www.naver.com
+
+# 보안 경고: 스크립트 실행 위험
+# Invoke-WebRequest는 웹 페이지의 내용을 구문 분석합니다. 페이지를 구문 분석할 때 웹 페이지 내
+# 스크립트 코드가 실행될 수 있습니다.
+#       권장 조치:
+#       -UseBasicParsing 스위치를 사용하여 스크립트 코드 실행을 방지합니다.
+
+#       계속하시겠어요?
+
+# [Y] 예(Y)  [A] 모두 예(A)  [N] 아니요(N)  [L] 모두 아니요(L)  [S] 일시 중단(S)  [?] 도움말
+# (기본값은 "N"):A
+
+
+# StatusCode        : 200
+# StatusDescription : OK
+# Content           :    <!doctype html> <html lang="ko" class="fzoom"> <head> <meta charset="utf-8">
+#                     <meta name="Referrer" content="origin"> <meta http-equiv="X-UA-Compatible" conte
+#                     nt="IE=edge"> <meta name="viewport" cont...
+# RawContent        : HTTP/1.1 200 OK
+#                     transfer-encoding: chunked
+#                     pragma: no-cache
+#                     x-frame-options: DENY
+#                     x-xss-protection: 1; mode=block
+#                     strict-transport-security: max-age=63072000; includeSubdomains
+#                     referrer-policy: ...
+# Forms             : {sform}
+# Headers           : {[transfer-encoding, chunked], [pragma, no-cache], [x-frame-options, DENY], [x-x
+#                     ss-protection, 1; mode=block]...}
+# Images            : {@{innerHTML=; innerText=; outerHTML=<img width="58" height="58" alt="NAVER" src
+#                     ="https://s.pstatic.net/static/www/mobile/edit/20230516_0/upload_1684217675277OZ
+#                     zsu.gif">; outerText=; tagName=IMG; width=58; height=58; alt=NAVER; src=https://
+#                     s.pstatic.net/static/www/mobile/edit/20230516_0/upload_1684217675277OZzsu.gif},
+#                     @{innerHTML=; innerText=; outerHTML=<img height="20" class="news_logo" alt="시사
+#                     IN" src="https://s.pstatic.net/static/newsstand/up/2025/0418/nsd174916541.png">;
+#                      outerText=; tagName=IMG; height=20; class=news_logo; alt=시사IN; src=https://s.
+#                     pstatic.net/static/newsstand/up/2025/0418/nsd174916541.png}, @{innerHTML=; inner
+#                     Text=; outerHTML=<img height="20" class="news_logo" alt="한국경제" src="https://
+#                     s.pstatic.net/static/newsstand/up/2025/0418/nsd182845526.png">; outerText=; tagN
+#                     ame=IMG; height=20; class=news_logo; alt=한국경제; src=https://s.pstatic.net/sta
+#                     tic/newsstand/up/2025/0418/nsd182845526.png}, @{innerHTML=; innerText=; outerHTM
+#                     L=<img height="20" class="news_logo" alt="블로터" src="https://s.pstatic.net/sta
+#                     tic/newsstand/up/2025/0418/nsd17435516.png">; outerText=; tagName=IMG; height=20
+#                     ; class=news_logo; alt=블로터; src=https://s.pstatic.net/static/newsstand/up/202
+#                     5/0418/nsd17435516.png}...}
+# InputFields       : {@{innerHTML=; innerText=; outerHTML=<input name="where" type="hidden" value="ne
+#                     xearch">; outerText=; tagName=INPUT; name=where; type=hidden; value=nexearch}, @
+#                     {innerHTML=; innerText=; outerHTML=<input name="sm" id="sm" type="hidden" value=
+#                     "top_hty">; outerText=; tagName=INPUT; name=sm; id=sm; type=hidden; value=top_ht
+#                     y}, @{innerHTML=; innerText=; outerHTML=<input name="fbm" id="fbm" type="hidden"
+#                      value="0">; outerText=; tagName=INPUT; name=fbm; id=fbm; type=hidden; value=0},
+#                      @{innerHTML=; innerText=; outerHTML=<input name="acr" disabled="disabled" id="a
+#                     cr" type="hidden" value="">; outerText=; tagName=INPUT; name=acr; disabled=disab
+#                     led; id=acr; type=hidden; value=}...}
+# Links             : {@{innerHTML=<span>상단영역 바로가기</span>; innerText=상단영역 바로가기; outerH
+#                     TML=<a href="#topAsideButton"><span>상단영역 바로가기</span></a>; outerText=상단
+#                     영역 바로가기; tagName=A; href=#topAsideButton}, @{innerHTML=<span>서비스 메뉴
+#                     바로가기</span>; innerText=서비스 메뉴 바로가기; outerHTML=<a href="#shortcutAre
+#                     a"><span>서비스 메뉴 바로가기</span></a>; outerText=서비스 메뉴 바로가기; tagNam
+#                     e=A; href=#shortcutArea}, @{innerHTML=<span>새소식 블록 바로가기</span>; innerTe
+#                     xt=새소식 블록 바로가기; outerHTML=<a href="#newsstand"><span>새소식 블록 바로가
+#                     기</span></a>; outerText=새소식 블록 바로가기; tagName=A; href=#newsstand}, @{in
+#                     nerHTML=<span>쇼핑 블록 바로가기</span>; innerText=쇼핑 블록 바로가기; outerHTML
+#                     =<a href="#shopping"><span>쇼핑 블록 바로가기</span></a>; outerText=쇼핑 블록 바
+#                     로가기; tagName=A; href=#shopping}...}
+# ParsedHtml        : mshtml.HTMLDocumentClass
+# RawContentLength  : 253591
+
+
+
+# PS C:\Users\NT371B5A>
+
+# CMD 명령 프롬프트 curl 명령어 1
+# 주의사항: Windows PowerShell 명령어와 달리 CMD 명령 프롬프트에서 "curl --version" 명령어 정상적으로 실행 된다.
+# Microsoft Windows [Version 10.0.26100.8246]
+# (c) Microsoft Corporation. All rights reserved.
+
+# C:\Users\NT371B5A>curl --version
+# curl 8.18.0 (Windows) libcurl/8.18.0 Schannel zlib/1.3.1 WinIDN WinLDAP
+# Release-Date: 2026-01-07
+# Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s smb smbs smtp smtps telnet tftp ws wss
+# Features: alt-svc AsynchDNS HSTS HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM SPNEGO SSL SSPI threadsafe Unicode UnixSockets
+
+# C:\Users\NT371B5A>curl --version
+# curl 8.18.0 (Windows) libcurl/8.18.0 Schannel zlib/1.3.1 WinIDN WinLDAP
+# Release-Date: 2026-01-07
+# Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s smb smbs smtp smtps telnet tftp ws wss
+# Features: alt-svc AsynchDNS HSTS HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM SPNEGO SSL SSPI threadsafe Unicode UnixSockets
+
+# C:\Users\NT371B5A>
+
+# CMD 명령 프롬프트 curl 명령어 2
+# 참고: https://gemini.google.com/app/8b1fe07309a58049?hl=ko
+# 주의사항
+# curl http://127.0.0.1:8000/items/?skip=1&limit=10 curl 명령어 실행 시 아래처럼 오류 발생하므로 curl 명령어 따옴표("") 추가 수정 해야함.
+# (기존) curl http://127.0.0.1:8000/items/?skip=1&limit=10 -> (변경) curl "http://127.0.0.1:8000/items/?skip=1&limit=10"
+# 오류 메시지: {"skip":"1","limit":10}'limit'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.
+# Microsoft Windows [Version 10.0.26100.8246]
+# (c) Microsoft Corporation. All rights reserved.
+
+# C:\Users\NT371B5A>curl --version
+# curl 8.18.0 (Windows) libcurl/8.18.0 Schannel zlib/1.3.1 WinIDN WinLDAP
+# Release-Date: 2026-01-07
+# Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s smb smbs smtp smtps telnet tftp ws wss
+# Features: alt-svc AsynchDNS HSTS HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM SPNEGO SSL SSPI threadsafe Unicode UnixSockets
+
+# C:\Users\NT371B5A>curl --version
+# curl 8.18.0 (Windows) libcurl/8.18.0 Schannel zlib/1.3.1 WinIDN WinLDAP
+# Release-Date: 2026-01-07
+# Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s smb smbs smtp smtps telnet tftp ws wss
+# Features: alt-svc AsynchDNS HSTS HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM SPNEGO SSL SSPI threadsafe Unicode UnixSockets
+
+# C:\Users\NT371B5A>curl http://127.0.0.1:8000/
+# {"message":"Hello, World!"}
+# C:\Users\NT371B5A>curl http://127.0.0.1:8000/items/1
+# {"item_id":"1"}
+# C:\Users\NT371B5A>curl http://127.0.0.1:8000/items/\?skip\=1\&limit\=10
+# {"item_id":"\\"}'limit\'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+# 배치 파일이 아닙니다.
+
+# C:\Users\NT371B5A>curl http://127.0.0.1:8000/items/?skip=1&limit=10
+# {"skip":"1","limit":10}'limit'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+# 배치 파일이 아닙니다.
+
+# C:\Users\NT371B5A>curl "http://127.0.0.1:8000/items/?skip=1&limit=10"
+# {"skip":"1","limit":"10"}
+# C:\Users\NT371B5A>curl "http://127.0.0.1:8000/items/"
+# {"skip":0,"limit":10}
+# C:\Users\NT371B5A>
