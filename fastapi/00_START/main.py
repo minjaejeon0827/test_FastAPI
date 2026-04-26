@@ -62,9 +62,14 @@
 # 소스코드
 # 참고: https://gist.github.com/DaveLee-fun/e04635abeb0af52c431090e80fed7e04
 
-from fastapi import FastAPI  # FastAPI 클래스 가져옴.
+# main.py 파일
+from fastapi import FastAPI, Query  # FastAPI 클래스, Query 함수 가져옴.
+from typing import List, Dict  # typing 모듈 List, Dict 기본 제공 데이터 타입 가져옴
 
 app = FastAPI()  # FastAPI 인스턴스 생성
+
+# HTTP GET 요청 - 웹서버에서 데이터 가져올 때 사용
+# HTTP POST 요청 - 데이터를 웹서버 쪽으로 넣으려고 할 때 사용 
 
 # URL 1 - http://127.0.0.1:8000/ 
 # URL 2 - http://127.0.0.1:8000 둘 다 동일.
@@ -83,8 +88,12 @@ def read_hi():  # GET 요청 처리 함수
 # URL - http://127.0.0.1:8000/items/1
 # 클라이언트(사용자)가 웹 브라우저 주소창에 http://127.0.0.1:8000/items/1 이라고 접속했을 때 실행됩니다.
 @app.get("/items/{item_id}")  # HTTP GET 요청 경로 지정 - 경로 매개변수(Path Parameters)
-def read_item(item_id):  # GET 요청 처리 함수 - 방금 위 주소의 {item_id} 빈칸에 들어온 숫자를 그대로 가져와서 'item_id'라는 이름표를 붙여줍니다.
-    return {"item_id": item_id}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환  
+# 타입 힌트(Type Hint) 사용 시 아래처럼 작성된 int 데이터 타입 이외의 이상한 값들이 들어오는 것을 막을 수 있다. 
+# 웹브라우저 테스트
+# http://127.0.0.1:8000/items/123 -> 출력 {"item_id": 123}
+# http://127.0.0.1:8000/items/fun -> 오류 item_id 값 int 아님
+def read_item(item_id: int):  # GET 요청 처리 함수 - item_id: int - 타입 힌트(Type Hint) int 형식 / GET 요청 처리 함수 - 방금 위 주소의 {item_id} 빈칸에 들어온 숫자를 그대로 가져와서 'item_id'라는 이름표를 붙여줍니다.
+    return {"item_id": item_id,}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환
 
 # 2. 쿼리 매개변수 (Query Parameters)
 # 두 번째 코드는 기본 주소 뒤에 물음표(?)를 붙여서 **추가적인 옵션(조건)**을 달아주는 방식이에요.
@@ -92,12 +101,45 @@ def read_item(item_id):  # GET 요청 처리 함수 - 방금 위 주소의 {item
 # URL - http://127.0.0.1:8000/items/?skip=5&limit=5
 # URL(default) - http://127.0.0.1:8000/items/
 # 주소창에 http://127.0.0.1:8000/items/?skip=5&limit=5 라고 입력했을 때 실행됩니다.
-@app.get("/items/")  # HTTP GET 요청 경로 지정 - 쿼리 매개변수(Query Parameters)
-def read_items(skip = 0, limit = 10):  # GET 요청 처리 함수
-    # 여기가 핵심이에요! 주소 끝에 물음표(?)를 붙이고 추가로 적은 옵션 값들을 여기서 받아요.
-    # - 주소창에 ?skip=5 라고 적었으면, 컴퓨터는 "아, skip 값을 5로 하라는 뜻이구나!" 하고 알아듣습니다.
-    # - 만약 아무 옵션도 없이 그냥 /items/ 로 접속하면? 컴퓨터가 당황하지 않게 "그럼 skip은 0, limit는 10으로 기본값을 정해둘게"라고 안전장치(=0, =10)를 마련해 둔 거예요.
-    return {"skip": skip, "limit": limit}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환
+# @app.get("/items/")  # HTTP GET 요청 경로 지정 - 쿼리 매개변수(Query Parameters)
+# def read_items(skip = 0, limit = 10):  # GET 요청 처리 함수
+#     # 여기가 핵심이에요! 주소 끝에 물음표(?)를 붙이고 추가로 적은 옵션 값들을 여기서 받아요.
+#     # - 주소창에 ?skip=5 라고 적었으면, 컴퓨터는 "아, skip 값을 5로 하라는 뜻이구나!" 하고 알아듣습니다.
+#     # - 만약 아무 옵션도 없이 그냥 /items/ 로 접속하면? 컴퓨터가 당황하지 않게 "그럼 skip은 0, limit는 10으로 기본값을 정해둘게"라고 안전장치(=0, =10)를 마련해 둔 거예요.
+#     return {"skip": skip, "limit": limit}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환
+
+@app.get("/getdata/")  # HTTP GET 요청 경로 지정
+# 타입 힌트(Type Hint) 사용 시 아래처럼 작성된 str 데이터 타입 이외의 이상한 값들이 들어오는 것을 막을 수 있다.
+# 웹브라우저 테스트
+# http://127.0.0.1:8000/getdata/?data=somequery -> 출력 {"data": "somequery"}
+# http://127.0.0.1:8000/getdata/ -> 출력 기본값 {"data": "funcoding"}
+# http://127.0.0.1:8000/getdata/?data=1.1 -> 출력 {"data": "1.1"} (숫자 1.1 문자열로 처리)
+def read_items(data: str = "funcoding"):  # GET 요청 처리 함수 - 타입 힌트(Type Hint) str 형식
+    return {"data": data}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환  
+
+@app.get("/items/")
+# 고급 타입 힌트(Type Hint) List[int] = Query([]) 리스트 자료형 쿼리 매개변수 사용 시 
+# 복잡한 데이터 구조 표현 가능 및 아래처럼 작성된 List[int] = Query([]) 데이터 타입 이외의 이상한 값들이 들어오는 것을 막을 수 있다.
+# 데이터 타입 List이고, List 각각의 요소값은 int여야 한다.
+# 다만 고급 타입 힌트(Type Hint)가 되려면 List[int] = Query([]) 이렇게 작성해야 한다.
+# 웹브라우저 테스트
+# http://127.0.0.1:8000/items/ -> 결과 {"q": []} (요소값이 아무것도 안들어오면 default 값 Query([])이 들어와서 비어있는 List 된다.)
+# http://127.0.0.1:8000/items/?q=1&q=2&q=3 -> 결과 {"q": [1, 2, 3]}
+# http://127.0.0.1:8000/items/?q=1&q=2&q=3&q=4 -> 결과 {"q": [1, 2, 3, 4]}
+# http://127.0.0.1:8000/items/?q=fun&q=2 -> 오류 q=fun(요소값) int 아님
+async def read_items(q: List[int] = Query([])):  # GET 요청 처리 async 비동기 함수 - 고급 타입 힌트(Type Hint) List[int] = Query([]) 형식
+# async def read_items(q: List[int] = Query([1, 2])):  # (요소값이 아무것도 안들어오면 default 값 Query([1, 2])이 들어와서 [1, 2] List 된다.)
+# async def read_items(q: List[int]):  # 왼쪽처럼 작성 시 오류 발생하므로 = Query([]) 작성 필수
+    return {"q": q}  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환  
+
+@app.post("/create-item/") # HTTP POST 요청 경로 지정
+# 고급 타입 힌트(Type Hint) Dict[str, int] 딕셔너리 자료형 요청 본문 사용 시 
+# 복잡한 데이터 구조 표현 가능 및 아래처럼 작성된 Dict[str, int] 데이터 타입 이외의 이상한 값들이 들어오는 것을 막을 수 있다.
+# 데이터 타입 Dict이고, Dict 각각의 키-값 쌍은 [str, int]여야 한다.
+# 다만 고급 타입 힌트(Type Hint)가 되려면 Dict[str, int] 이렇게 작성해야 한다.
+async def create_item(item: Dict[str, int]):  # POST 요청 처리 async 비동기 함수 - 고급 타입 힌트(Type Hint) Dict[str, int] 형식
+    return item  # JSON 형태 응답 반환(구글 크롬 웹브라우저). FastAPI가 자동 변환  
+
 
 # 💡 핵심 요약 비교
 # 경로 매개변수 (/items/1): 찾고자 하는 대상의 고유한 번호나 정확한 위치를 나타낼 때 써요. (예: 1번 회원 정보, 5번 게시물)
